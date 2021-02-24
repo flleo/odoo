@@ -1,0 +1,38 @@
+<odoo> 
+    <data> 
+
+    
+
+      <!-- creando vista interna campo ss para EMPLEADOS -->
+
+          <record id="view_form_employee" model="ir.ui.view">
+                    <!-- nombre de la vista -->
+                    <field name="name">
+                         vista.empleado.form 
+                    </field>
+                    <!-- modelo al que pertenece la vista -->
+                    <field name="model">hr.employee</field>
+
+                    <!-- vista de la que heredamos para cambiarla id externa -->
+                    <field name="inherit_id" ref="hr.view_employee_form"/>
+                    
+                    <!-- modificando la vista xml , campo field siempre igual -->
+                    <field name="arch" type="xml">
+
+                         <!-- después del campo de name='passport_id' que encuentres --> 
+                         <xpath expr="//field[@name='passport_id']" position="after">  
+                              <!-- CAMPOS PERSONALIZADOS -->                            
+                              <field name="x_ss" string="Seguridad Social"/>                              
+                         </xpath>
+                         <!-- después de la última pestaña o tab o simplemente campo page que encuentres --> 
+                         <xpath expr="//page[last()]" position="after">  
+                              <!-- NUEVA PESTAÑA -->                            
+                              <page name="hr_internal_notes" string="Notas Internas" >
+                                 <field  name="x_internal_notes" placeholder="Introduce tus notas..."/>
+                              </page>                    
+                         </xpath>
+
+                     </field>
+               </record>      
+    </data>
+</odoo>

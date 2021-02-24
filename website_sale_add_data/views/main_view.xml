@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="website_sale_switch_code" inherit_id="website_sale.product" active="True" customize_show="True" name="Reference">
+		<xpath expr="//h1" position="after">
+			<t t-if="product_variant.default_code is not False">
+				<h5 class="font-weight-bold">
+					Reference:
+					<span class="font-weight-normal" itemprop="default_code" t-field="product_variant.default_code" />
+				</h5>
+			</t>
+			<t t-else="">
+			</t>
+		</xpath>
+	</template>
+	<template id="website_sale_switch_barr" inherit_id="website_sale.product" active="True" customize_show="True" name="Barcode">
+		<xpath expr="//t[@t-placeholder='select']" position="before">
+			<t t-if="product_variant.barcode is not False">
+				<h5 class="font-weight-bold">
+					Barcode:
+					<span class="font-weight-normal" itemprop="barcode" t-field="product_variant.barcode" />
+				</h5>
+			</t>
+			<t t-else="">
+			</t>
+		</xpath>
+	</template>
+	
+</odoo>
