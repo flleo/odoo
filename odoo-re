@@ -1,0 +1,4 @@
+#!/bin/bash
+systemctl restart odoo
+echo 'sistema odoo reiniciado'
+
